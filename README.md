@@ -1,8 +1,15 @@
 # fastapi-s3-demo
 Fast API that allows you to push text to a S3 bucket via post and a GET to retireve the contents
 
+
+
+Install dependencies
 ```
 pip install fastapi uvicorn boto3 python-dotenv
+```
+or
+```
+pip install -r requirements.txt
 ```
 
 To run this code for development, execute:
@@ -14,6 +21,15 @@ to run this code in a container
 ```
 uvicorn main:app --host 0.0.0.0 --port 8000
 ```
+
+ensure that you set either a `.env` or a environmetn variable with the following values:
+```
+AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_REGION
+AWS_BUCKET_NAME
+```
+
 
 # Usage
 
@@ -51,10 +67,6 @@ http://127.0.0.1:8000/docs
 ```
 
 # bucket information
-
-Name: `arn:aws:s3:::42testbucket`  
-Region: ` us-east-2`
-
 
 Bucket Policy:
 
