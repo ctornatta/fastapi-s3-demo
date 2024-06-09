@@ -2,7 +2,7 @@
 Fast API that allows you to push text to a S3 bucket via post and a GET to retireve the contents
 
 ```
-pip install fastapi uvicorn boto3
+pip install fastapi uvicorn boto3 python-dotenv
 ```
 
 # Usage
