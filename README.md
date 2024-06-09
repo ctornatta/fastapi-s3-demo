@@ -32,6 +32,19 @@ Get the content
 curl http://127.0.0.1:8000/download/example.txt
 ```
 
+
+Full example:
+```
+$ curl -X PUT "http://127.0.0.1:8000/upload/" -H "Content-Type: application/json" -d '{"key": "example.txt", "content": "This is a test content"}'           
+
+{"message":"Object written successfully"}%                                                                                                                               ➜  
+
+$ curl http://127.0.0.1:8000/download/example.txt
+{"key":"example.txt","content":"This is a test content"}
+
+```
+
+
 # swagger endpoint
 ```
 http://127.0.0.1:8000/docs
