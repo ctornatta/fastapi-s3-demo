@@ -5,13 +5,20 @@ Fast API that allows you to push text to a S3 bucket via post and a GET to retir
 pip install fastapi uvicorn boto3
 ```
 
-
-
 # Usage
 
-
+Use a POST request via curl
 ```
 curl -X POST "http://127.0.0.1:8000/upload/" -F "file=@example.txt"
+```
+
+Use a PUT request via curl
+```
+curl -X PUT "http://127.0.0.1:8000/upload/" -H "Content-Type: application/json" -d '{"key": "example.txt", "content": "This is a test content"}'
+```
+
+Get the content
+```
 curl http://127.0.0.1:8000/download/example.txt
 ```
 
