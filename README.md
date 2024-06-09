@@ -5,6 +5,16 @@ Fast API that allows you to push text to a S3 bucket via post and a GET to retir
 pip install fastapi uvicorn boto3 python-dotenv
 ```
 
+To run this code for development, execute:
+```
+uvicorn main:app --reload
+```
+
+to run this code in a container
+```
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
 # Usage
 
 Use a POST request via curl
