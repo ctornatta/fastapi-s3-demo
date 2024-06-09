@@ -1,13 +1,30 @@
+import os
 from fastapi import FastAPI, HTTPException, UploadFile, File
 from pydantic import BaseModel
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError
+from dotenv import load_dotenv
+
+# Load environment variables from a .env file (optional)
+load_dotenv()
 
 app = FastAPI()
 
-# S3 client configuration
-s3_client = boto3.client('s3', aws_access_key_id='YOUR_AWS_ACCESS_KEY', aws_secret_access_key='YOUR_AWS_SECRET_KEY', region_name='YOUR_AWS_REGION')
-bucket_name = 'YOUR_BUCKET_NAME'
+# S3 client configuration using environment variables
+aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
+aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
+aws_region = os.getenv('AWS_REGION')
+bucket_name = os.getenv('AWS_BUCKET_NAME')
+
+if not all([aws_access_key_id, aws_secret_access_key, aws_region, bucket_name]):
+    raise RuntimeError("Missing required environment variables")
+
+s3_client = boto3.client(
+    's3',
+    aws_access_key_id=aws_access_key_id,
+    aws_secret_access_key=aws_secret_access_key,
+    region_name=aws_region
+)
 
 class S3Object(BaseModel):
     key: str
