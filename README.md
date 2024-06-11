@@ -66,6 +66,19 @@ $ curl http://127.0.0.1:8000/download/example.txt
 http://127.0.0.1:8000/docs
 ```
 
+
+# Podman
+
+To build:
+```
+podman build -t my-fastapi-app .
+```
+
+To run:
+```
+podman run -d -p 8080:8080 --name my-fastapi-container --env-file .env my-fastapi-app
+```
+
 # bucket information
 
 Bucket Policy:
