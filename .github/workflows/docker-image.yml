@@ -1,12 +1,6 @@
 name: Build and Push Docker Image
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - Dockerfile  # Only run this workflow if Dockerfile is included in the commit
-
   workflow_dispatch:  # This allows manual triggering of the workflow
 
 jobs:
